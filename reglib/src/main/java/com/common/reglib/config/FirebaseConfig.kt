@@ -28,6 +28,16 @@ object FirebaseConfig {
             .build()
     }
 
+    // Auth UI config
+    fun getAuthUIConfiguration(): Intent {
+        return AuthUI.getInstance()
+            .createSignInIntentBuilder()
+            .setAvailableProviders(getAuthUIProviders())
+            .setTheme(R.style.LoginTheme)
+            .setAlwaysShowSignInMethodScreen(true)
+            .build()
+    }
+
     private fun getAuthUIProviders(): List<AuthUI.IdpConfig> {
         return listOf(GoogleBuilder().build())
     }
