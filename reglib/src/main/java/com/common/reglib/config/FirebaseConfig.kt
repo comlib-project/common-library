@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.annotation.DrawableRes
 import androidx.annotation.StyleRes
 import androidx.paging.PagedList
+import com.common.reglib.R
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.AuthUI.IdpConfig.GoogleBuilder
 
@@ -38,12 +39,25 @@ object FirebaseConfig {
     }
 
     /**
-     * This method is used to setup simple AuthUI configuration.
+     * This method is used to setup simple white AuthUI configuration.
      */
     fun getAuthUIConfiguration(): Intent {
         return AuthUI.getInstance()
             .createSignInIntentBuilder()
             .setAvailableProviders(getAuthUIProviders())
+            .setAlwaysShowSignInMethodScreen(true)
+            .build()
+    }
+
+    /**
+     * This method is used to setup simple AuthUI configuration.
+     */
+    fun getAuthUIConfigurations(): Intent {
+        return AuthUI.getInstance()
+            .createSignInIntentBuilder()
+            .setAvailableProviders(getAuthUIProviders())
+            .setTheme(R.style.LoginTheme)
+            .setLogo(R.drawable.img_logo)
             .setAlwaysShowSignInMethodScreen(true)
             .build()
     }

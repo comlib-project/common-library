@@ -18,8 +18,15 @@ class AuthIntent(val context: Activity){
     /**
      * This method is used for requesting auth permission.
      */
-    fun start(){
+    fun startSimple(){
         startActivityForResult(context, FirebaseConfig.getAuthUIConfiguration(), Common.AUTH_REQUEST_CODE, null)
+    }
+
+    /**
+     * This method is used for requesting auth permission.
+     */
+    fun start(){
+        startActivityForResult(context, FirebaseConfig.getAuthUIConfigurations(), Common.AUTH_REQUEST_CODE, null)
     }
 
     /**
