@@ -7,9 +7,14 @@ import androidx.paging.PagedList
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.AuthUI.IdpConfig.GoogleBuilder
 
+/**
+ * Object class for setting up regular firebase.
+ */
 object FirebaseConfig {
 
-    // Fire store paged list config
+    /**
+     * This method is used to setup PagedList.
+     */
     fun getPagedListConfiguration(): PagedList.Config {
         return PagedList.Config.Builder()
             .setInitialLoadSizeHint(10)
@@ -17,7 +22,11 @@ object FirebaseConfig {
             .build()
     }
 
-    // Auth UI config
+    /**
+     * This method is used to setup default AuthUI configuration.
+     * @param theme The Theme that used as signing page style resource.
+     * @param logo The Logo of Drawable resource that will displayed on top op signing form.
+     */
     fun getAuthUIConfiguration(@StyleRes theme: Int, @DrawableRes logo: Int): Intent {
         return AuthUI.getInstance()
             .createSignInIntentBuilder()
@@ -28,7 +37,9 @@ object FirebaseConfig {
             .build()
     }
 
-    // Auth UI config
+    /**
+     * This method is used to setup simple AuthUI configuration.
+     */
     fun getAuthUIConfiguration(): Intent {
         return AuthUI.getInstance()
             .createSignInIntentBuilder()
@@ -37,6 +48,9 @@ object FirebaseConfig {
             .build()
     }
 
+    /**
+     * This method is used to setup AuthUI provider.
+     */
     private fun getAuthUIProviders(): List<AuthUI.IdpConfig> {
         return listOf(GoogleBuilder().build())
     }

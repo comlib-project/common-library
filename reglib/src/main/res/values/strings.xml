@@ -1,8 +1,6 @@
 <resources>
-
-    <!-- Message DB Connection -->
     <string name="message_db_failure">Failed to connect the server!</string>
-    <string name="message_upload_failure">Upload receipt gagal!</string>
+    <string name="message_upload_failure">Upload receipt failed!</string>
     <string name="message_permission_require">You must accept permission to use app!</string>
     <string name="message_permission_not_found">You must accept permission to use app!</string>
 </resources>
