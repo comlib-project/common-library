@@ -1,69 +1,8 @@
 <resources>
-    <string name="app_name">Lingga Cargo Driver</string>
-    <string name="title_activity_home">HomeActivity</string>
-    <string name="title_barcode">Barcode</string>
-    <string name="title_manifest">Manifest</string>
-    <string name="title_warehouse">Warehouse</string>
-    <string name="title_account">Account</string>
-    <string name="title_activity_receipt">Handover Of Goods</string>
-    <string name="title_barcode_verify">Barcode Validation</string>
 
     <!-- Message DB Connection -->
     <string name="message_db_failure">Failed to connect the server!</string>
     <string name="message_upload_failure">Upload receipt gagal!</string>
-    <string name="message_db_create_user">Your Account registration successfully!</string>
-    <string name="message_welcome_back">Welcome back %1$s!</string>
     <string name="message_permission_require">You must accept permission to use app!</string>
     <string name="message_permission_not_found">You must accept permission to use app!</string>
-
-    <string name="message_invoice_manifest_success">Faktur %1$s telah diperbaharui!</string>
-    <string name="message_invoice_add_success">Faktur %1$s telah ditambahkan!</string>
-    <string name="message_invoice_not_found">Faktur tidak ditemukan!</string>
-    <string name="message_invoice_already_manifested">Faktur ini sudah melalui process manifest!</string>
-    <string name="message_invoice_used">No faktur telah terpakai!</string>
-    <string name="message_invoice_complete">Faktur %1$s telah selesai!</string>
-
-    <string name="message_input_order_become_locked">Input order is locked now!</string>
-
-    <!-- Message Form Validation -->
-    <string name="message_input_koli_required">Jumlah koli wajib diisi!</string>
-    <string name="message_input_delivered_koli_required">Jumlah koli yang dikirim waajib diisi!</string>
-    <string name="message_input_delivered_koli_validation">Jumlah koli partial tidak boleh lebih besar atau sama dengan jumlah koli pada faktur!</string>
-    <string name="message_image_receipt_required">Bukti penerimaan belum difoto, klik gambar foto!</string>
-
-    <!-- Message Diaalog -->
-    <string name="message_dialog_lock_order_confirmation">Kunci input order ?</string>
-    <string name="message_dialog_input_order_locked">Input order is locked, you can\'t input another invoice!</string>
-    <string name="message_dialog_input_order_locked_require">You need to lock ORDER INPUT first to access the manifest!</string>
-    <string name="message_dialog_close_app_confirmation">Are you sure want to close the app?</string>
-
-    <!-- Process -->
-    <string name="progress_upload">Uploading...</string>
-    <string name="progress_scan">Scanning...</string>
-
-    <!-- Button -->
-    <string name="button_save">Simpan</string>
-    <string name="button_cancel">Batal</string>
-    <string name="button_confirmation">Ya</string>
-    <string name="button_capture">Capture</string>
-
-    <!-- Hint -->
-    <string name="text_hint_weight">Berat (Optional)</string>
-    <string name="text_hint_area">Area (Optional)</string>
-    <string name="text_hint_baggage">Jumlah Koli</string>
-    <string name="text_hint_baggage_delivered">Jumlah koli yang diserahkan</string>
-
-    <string name="text_unit_of_baggage">Koli</string>
-
-    <string name="image_prefix">%1$s.jpg</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_delivery">Delivery</string>
-    <string name="title_orders">Orders</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
-    <string name="title_verification">Verification</string>
-    <string name="title_complete">Complete</string>
 </resources>

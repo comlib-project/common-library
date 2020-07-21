@@ -2,8 +2,8 @@ package com.common.reglib.config
 
 import android.content.Intent
 import androidx.annotation.DrawableRes
+import androidx.annotation.StyleRes
 import androidx.paging.PagedList
-import com.common.reglib.R
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.AuthUI.IdpConfig.GoogleBuilder
 
@@ -18,11 +18,11 @@ object FirebaseConfig {
     }
 
     // Auth UI config
-    fun getAuthUIConfiguration(@DrawableRes logo: Int): Intent {
+    fun getAuthUIConfiguration(@StyleRes theme: Int, @DrawableRes logo: Int): Intent {
         return AuthUI.getInstance()
             .createSignInIntentBuilder()
             .setAvailableProviders(getAuthUIProviders())
-            .setTheme(R.style.LoginTheme)
+            .setTheme(theme)
             .setLogo(logo)
             .setAlwaysShowSignInMethodScreen(true)
             .build()
@@ -33,7 +33,6 @@ object FirebaseConfig {
         return AuthUI.getInstance()
             .createSignInIntentBuilder()
             .setAvailableProviders(getAuthUIProviders())
-            .setTheme(R.style.LoginTheme)
             .setAlwaysShowSignInMethodScreen(true)
             .build()
     }

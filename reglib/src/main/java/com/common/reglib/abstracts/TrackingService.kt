@@ -21,12 +21,7 @@ abstract class TrackingService: BroadcastReceiver() {
             if (action == Common.ACTION_CODE_UPDATE_LOCATION) {
                 val result = LocationResult.extractResult(intent)
                 if (result != null) {
-                    val location = result.lastLocation
-                    if (Common.signedUser != null) {
-                        Common.signedUser!!.uid?.let { onUpdateLocation(context, location, it) }
-                    } else {
-                        onUpdateLocation(context, location, uid)
-                    }
+                    onUpdateLocation(context, result.lastLocation, uid)
                 }
             }
         }
