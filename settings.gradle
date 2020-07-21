@@ -1,0 +1,3 @@
+rootProject.name='common-library'
+include ':app'
+include ':reglib'
