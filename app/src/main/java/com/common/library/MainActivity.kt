@@ -2,7 +2,6 @@ package com.common.library
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.common.reglib.utils.Common
 
 class MainActivity : AppCompatActivity() {
 
