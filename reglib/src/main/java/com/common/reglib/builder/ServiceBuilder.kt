@@ -9,6 +9,7 @@ import android.content.Intent
 import android.content.IntentSender
 import android.location.LocationManager
 import android.provider.Settings
+import androidx.core.app.ActivityCompat.startActivityForResult
 import com.common.reglib.intents.permission.Permissions
 import com.common.reglib.utils.Common
 import com.google.android.gms.common.api.ApiException
@@ -84,6 +85,28 @@ object ServiceBuilder {
         } catch (ex: IntentSender.SendIntentException) {
             ex.printStackTrace()
         } catch (ex: ClassCastException) {}
+    }
+
+    /**
+     * This method is used to check gps provider on settings.
+     * @param activity The Activity in which the activity is running.
+     */
+    fun checkGPSProvider(activity: Activity) {
+        val locationManager: LocationManager = activity.getSystemService(Context.LOCATION_SERVICE) as LocationManager
+        if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER))
+            AlertDialogBuilder.alertDialogMessage(activity, "GPS is required to run this app. Please enable GPS.").apply {
+                setButton(DialogInterface.BUTTON_POSITIVE, "Enable") { dialog, _ ->
+                    startActivityForResult(activity,
+                        Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS),
+                        Common.LOCATION_PROVIDER_REQUEST_CODE, null)
+
+                    dialog.dismiss()
+                }
+                setButton(DialogInterface.BUTTON_NEGATIVE, "Close App") { dialog, _ ->
+                    activity.finish()
+                    dialog.dismiss()
+                }
+            }.show()
     }
 
     /**
