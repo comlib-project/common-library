@@ -1,7 +1,10 @@
 package com.common.reglib.utils
 
 import android.annotation.SuppressLint
+import android.content.Context
+import com.common.reglib.exception.CommonException
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import io.paperdb.Paper
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -9,6 +12,7 @@ import java.util.*
  * The Object class that store common logic and constant value.
  */
 object Common {
+    const val USER_UID_SAVE_KEY = "com.common.location.UID"
     const val ACTION_CODE_UPDATE_LOCATION = "com.common.location.UPDATE_LOCATION"
 
     const val LOCATION_PERMISSION_REQUEST_CODE = 6001
@@ -51,5 +55,26 @@ object Common {
         nav.selectedItemId = navigationDelivery
     }
 
-    const val USER_UID_SAVE_KEY = "UserIdSaveKey"
+    /**
+     * This method is used to load stored signed user id.
+     * @param context The Context in which the receiver is running.
+     */
+    fun readSign(context: Context): String {
+        Paper.init(context)
+        val sign = Paper.book().read<String>(USER_UID_SAVE_KEY)
+        if (sign == null)
+            throw CommonException("Common-Lib doesn't found any signed unique id")
+        else
+            return sign
+    }
+
+    /**
+     * This method is used to store signed user id to local storage.
+     * @param context The Context in which the receiver is running.
+     * @param sign The Sign unique id to be stored.
+     */
+    fun registerSign(context: Context, sign: String) {
+        Paper.init(context)
+        Paper.book().write(USER_UID_SAVE_KEY, sign)
+    }
 }

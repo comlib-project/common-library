@@ -4,15 +4,16 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.location.Location
+import com.common.reglib.exception.CommonException
 import com.common.reglib.utils.Common
 import com.google.android.gms.location.LocationResult
 import io.paperdb.Paper
+import io.paperdb.PaperDbException
 
 /**
  * Base class for code that receives location.
  */
 abstract class TrackingService: BroadcastReceiver() {
-    private val uid: String = Paper.book().read<String>(Common.USER_UID_SAVE_KEY)
 
     /**
      * This method is called when the tracking receiving the location
@@ -20,10 +21,10 @@ abstract class TrackingService: BroadcastReceiver() {
      * @param location The Location of device.
      * @param unique The Unique id that belong to device owner.
      */
-    abstract fun onUpdateLocation(context: Context?, location: Location, unique: String)
+    abstract fun onUpdateLocation(context: Context, location: Location, unique: String)
 
-    override fun onReceive(context: Context?, intent: Intent?) {
-        Paper.init(context)
+    override fun onReceive(context: Context, intent: Intent?) {
+        val uid: String = Common.readSign(context)
 
         if (intent != null) {
             val action = intent.action
